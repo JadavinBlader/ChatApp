@@ -1,5 +1,6 @@
 import java.net.Socket;
 import java.util.Scanner;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 
@@ -10,10 +11,10 @@ public class Connection {
 	private Scanner input;
 	private PrintWriter output;
 	
-	public Connection (Socket s, String nick){
+	public Connection (Socket s, String nick) throws IOException{
 		this.socket = s;
-		input = new Scanner(System.in);
-		output = new PrintWriter(System.out, true);
+		input = new Scanner(s.getInputStream());
+		output = new PrintWriter(s.getOutputStream(), true);
 		this.nick = nick;
 	}
 	

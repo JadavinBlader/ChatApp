@@ -40,11 +40,11 @@ public class Connection {
 	}
 	
 	public void accept(){
-		
+		output.print("Accepted\n");
 	}
 	
 	public void reject(){
-		
+		output.print("Rejected\n");
 	}
 	
 	public void disconnect(){

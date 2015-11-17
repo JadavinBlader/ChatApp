@@ -13,7 +13,7 @@ public class Connection {
 	
 	public Connection (Socket s, String nick) throws IOException{
 		this.socket = s;
-		input = new Scanner(s.getInputStream());
+		input = new Scanner(s.getInputStream(), "UTF-8");
 		output = new PrintWriter(s.getOutputStream(), true);
 		this.nick = nick;
 	}

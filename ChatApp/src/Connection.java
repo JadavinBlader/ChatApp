@@ -10,8 +10,11 @@ public class Connection {
 	private Scanner input;
 	private PrintWriter output;
 	
-	public Connection (Socket s){
+	public Connection (Socket s, String nick){
 		this.socket = s;
+		input = new Scanner(System.in);
+		output = new PrintWriter(System.out, true);
+		this.nick = nick;
 	}
 	
 	public boolean isOpen(){

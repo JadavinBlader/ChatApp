@@ -1,16 +1,21 @@
 import java.net.Socket;
+import java.util.Scanner;
+import java.io.PrintWriter;
 
 
 public class Connection {
 
 	private Socket socket;
+	private String nick;
+	private Scanner input;
+	private PrintWriter output;
 	
 	public Connection (Socket s){
 		this.socket = s;
 	}
 	
 	public boolean isOpen(){
-		return false;
+		return !socket.isClosed();
 	}
 	
 	public void close(){

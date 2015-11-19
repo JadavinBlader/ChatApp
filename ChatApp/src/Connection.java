@@ -60,7 +60,9 @@ public class Connection {
 	}
 	
 	public void sendMessage(String msg){
-		
+		output.print("Message\n");
+		output.println(msg+"\n");
+		output.flush();
 	}
 	
 	public static void main(String[] args){

@@ -29,6 +29,7 @@ public class Connection {
 	}
 	
 	public Command receive(){
+		
 		return null;
 		
 	}

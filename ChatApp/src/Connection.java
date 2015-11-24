@@ -29,7 +29,16 @@ public class Connection {
 	}
 	
 	public Command receive(){
-		
+		String str = input.nextLine();
+		if (str.toLowerCase().startsWith("chatapp 2015 user")){
+			Scanner inStr = new Scanner(str);
+			inStr.next();
+			NickCommand j = new NickCommand(inStr.next(), inStr.skip(" [a-z,A-Z]{4} ").next(), str.toLowerCase().endsWith("busy"));//спросить
+			return j;
+		}else if (str.toLowerCase().equals("message")){
+			MessageCommand ms = new MessageCommand(input.nextLine());
+			return ms;
+		}
 		return null;
 		
 	}

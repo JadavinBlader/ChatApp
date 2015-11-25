@@ -4,12 +4,16 @@ import java.util.Observable;
 
 public class CommandListenerThread extends Observable implements Runnable{
 
+	Connection connect;
+	Command lastCommand;
+	boolean discon;
+	
 	public CommandListenerThread(){
 		
 	}
 	
 	public CommandListenerThread(Connection con){
-		
+		connect = con;
 	}
 	
 	public void start(){
@@ -17,7 +21,7 @@ public class CommandListenerThread extends Observable implements Runnable{
 	}
 	
 	public void stop(){
-		
+		discon = true;
 	}
 	
 	public void run(){
@@ -25,11 +29,11 @@ public class CommandListenerThread extends Observable implements Runnable{
 	}
 	
 	public Command getLastCommand(){
-		return null;
+		return lastCommand;
 	}
 	
 	public boolean isDisconnected(){
-		return false;
+		return discon;
 	}
 	
 	public static void main(String[] args) {

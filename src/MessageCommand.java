@@ -9,6 +9,7 @@ public class MessageCommand extends Command{
 	}
 	
 	public String toString(){
+		message = message+"\n";
 		return message;
 	}
 

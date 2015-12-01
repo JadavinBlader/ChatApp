@@ -1,37 +1,50 @@
-
 import java.util.Observable;
 
+public class CommandListenerThread extends Observable implements Runnable {
 
-public class CommandListenerThread extends Observable implements Runnable{
+	private boolean disconnect;
+	private Connection connection;
+	Command LastCommand = new Command(null);
 
-	public CommandListenerThread(){
-		
+	public CommandListenerThread() {
+
 	}
-	
-	public CommandListenerThread(Connection con){
-		
+
+	public CommandListenerThread(Connection connect) {
+		this.disconnect = false;
+		this.connection = connect;
+
 	}
-	
-	public void start(){
-		
+
+	public void start() {
+		Thread thr = new Thread(this);
+		thr.start();
 	}
-	
-	public void stop(){
-		
+
+	public void stop() {
+		disconnect = true;
 	}
-	
-	public void run(){
-		
+
+	public void run() {
+		while (!disconnect) {
+
+			Command tmp = connection.receive();
+			if (LastCommand != null) {
+				if ((LastCommand.type == (Command.CommandType.DISCONNECT)) || (LastCommand.type.toString().equals("Rejected"))) {
+					disconnect = true;
+				}
+			}
+		}
 	}
-	
-	public Command getLastCommand(){
-		return null;
+
+	public Command getLastCommand() {
+		return LastCommand;
 	}
-	
-	public boolean isDisconnected(){
-		return false;
+
+	public boolean isDisconnected() {
+		return disconnect;
 	}
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

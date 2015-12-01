@@ -1,5 +1,4 @@
 
-import java.lang.invoke.CallSite;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
@@ -7,7 +6,6 @@ import java.net.SocketAddress;
 public class Caller {
 	private String Lnick;
 	private String Rnick;
-	private String ip;
 	private CallStatus s;
 	private SocketAddress remoteAddress;
 

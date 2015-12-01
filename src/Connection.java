@@ -80,14 +80,7 @@ public class Connection {
 		output.flush();
 	}
 
-	public static void main(String[] args) throws IOException {
-		ServerSocket ss = new ServerSocket(28411);
-		Socket s = ss.accept();
-		Connection c = new Connection(s, "max");
-
-		Command cc = c.receive();
-		System.out.printf("%s : %s\n", cc.getClass(), cc);
-		cc = c.receive();
-		System.out.printf("%s : %s\n", cc.getClass(), cc);
+	public static void main(String[] args){
+	
 	}
 }

@@ -7,7 +7,6 @@ import java.util.Observable;
 public class CallListenerThread extends Observable implements Runnable {
 	private CallListener callListener;
 	private Connection last;
-	private boolean sleep;
 	private boolean pause;
 
 	public CallListenerThread() throws IOException {

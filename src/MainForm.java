@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
 
+import javafx.scene.paint.Color;
+
 import javax.swing.*;
 
 import java.io.*;
@@ -22,7 +24,7 @@ public class MainForm{
 				try {
 					frame = new MainForm();
 					frame.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.frame.setTitle("ChatApp");
+					frame.frame.setTitle("ChatApp v1.0.0");
 					frame.frame.setVisible(true);
 					frame.frame.setResizable(true);
 				} catch (IOException e) {

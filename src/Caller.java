@@ -34,19 +34,10 @@ public class Caller {
 	public Connection call()
             throws java.io.IOException{
 		Socket socket = new Socket();
+		socket.bind(new InetSocketAddress(socket.getLocalAddress(), 28411));
 		socket.connect(remoteAddress);
-		Connection outputCon = new Connection(socket, Lnick);
-		outputCon.sendNickHello("2015", Lnick);
-		Command Com;
-		String str;
-		if (outputCon.receive().toString() == Command.CommandType.NICK.toString()){
-	        Rnick = outputCon.receive();
-		  str = Rnick.toUpperCase();
-		  Rnick = Rnick.substring(str.indexOf(" USER "));
-		     if (Rnick.isEmpty())
-			   outputCon.close();
-		}
-				return null;
+		return new Connection(socket,Lnick);
+			
 		
 	}
 	public String getLocalNick(){

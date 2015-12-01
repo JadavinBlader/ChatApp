@@ -29,7 +29,7 @@ public class CallListener {
 	}
 	public Connection getConnection()
             throws java.io.IOException{
-				return null;
+				return new Connection(sSocket.accept(),Lnick );
 		
 	}
 	public String getLocalNick(){

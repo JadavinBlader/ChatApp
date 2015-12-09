@@ -4,8 +4,6 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import java.io.*;
-import java.net.*;
-import java.util.Date;
 
 public class MainForm{
 	private JFrame frame;

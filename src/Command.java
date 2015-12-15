@@ -4,7 +4,15 @@ public class Command {
 	protected CommandType type;
 
 	public static enum CommandType {
-		ACCEPT, DISCONNECT, MESSAGE, NICK, REJECT;
+		ACCEPT{
+			public String toString(){
+				return "Accepted";
+			}
+		}, DISCONNECT, MESSAGE, NICK, REJECT{
+			public String toString(){
+				return "Rejected";
+			}
+		};
 	}
 
 	public Command(CommandType t) {

@@ -1,4 +1,3 @@
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 import java.io.IOException;
@@ -35,6 +34,7 @@ public class Connection {
 			Scanner inStr = new Scanner(str);
 			inStr.next();
 			NickCommand j = new NickCommand(inStr.next(), inStr.skip(" [a-z,A-Z]{4} ").next(), str.toLowerCase().endsWith("busy"));
+			inStr.close();
 			return j;
 		} else if (str.toLowerCase().equals("message")) {
 			MessageCommand ms = new MessageCommand(input.nextLine());
@@ -81,6 +81,6 @@ public class Connection {
 	}
 
 	public static void main(String[] args){
-	
+
 	}
 }

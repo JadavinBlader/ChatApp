@@ -34,6 +34,10 @@ public class CommandListenerThread extends Observable implements Runnable {
 					disconnect = true;
 				}
 			}
+
+			this.setChanged();
+			this.notifyObservers();
+
 		}
 	}
 
